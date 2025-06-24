@@ -1,0 +1,44 @@
+! Slashdot clean-view preset – last updated 24 Jun 2025
+! Copy/paste everything below into
+!  Preferences ▸ AdBlock ▸ Custom Rules
+!  (or save as ~/.config/falkon/adblock/customlist.txt)
+
+! ========== 1. zap ad/track requests ==========
+||html-load.com^$third-party    ! nasty inline ad-loader:contentReference[oaicite:0]{index=0}
+||lijit.com^$third-party
+||btloader.com^$third-party
+||pro-market.net^$third-party
+||crsspxl.com^$third-party
+||googlesyndication.com^$third-party
+||safeframe.usercontent.goog^$third-party
+||doubleclick.net^$third-party
+||adnxs.com^$third-party
+||indexww.com^$third-party
+||rubiconproject.com^$third-party
+||pubmatic.com^$third-party
+||smartadserver.com^$third-party
+||tapad.com^$third-party
+||adform.net^$third-party
+||casalemedia.com^$third-party
+||taboola.com^$third-party
+||spotx.tv^$third-party
+||mediamath.com^$third-party
+||rtbhouse.net^$third-party
+! domains pulled from Slashdot’s own Content-Security-Policy header and a live urlscan﻿.io trace:contentReference[oaicite:1]{index=1}
+
+! ========== 2. hide left-over ad frames ==========
+slashdot.org##iframe[src*="googlesyndication"]
+slashdot.org##iframe[src*="doubleclick"]
+slashdot.org##div[id^="ad-"]
+slashdot.org##.advertisement
+slashdot.org##.adslot
+slashdot.org##.rail-right              ! right column = 100 % ads
+slashdot.org###google_ads_iframe
+slashdot.org###sponsoredlinks
+
+! ========== 3. cosmetic tweak (optional) ==========
+! If you’d like the content to span full-width after the rail is gone,
+! uncomment the next line – Falkon supports :style() selectors.
+! slashdot.org##.main-wrap:style(max-width:100% !important)
+
+! —— END —— 
